@@ -1,8 +1,8 @@
 import numpy as np
 
 """
-函数功能：
-Relative Density(简称RD)方法的实现
+function performance：
+Relative Density (RD) method implementation
 """
 
 
@@ -22,7 +22,11 @@ def get_k_dis_sum(k, data, dat):
 def relative_density(train, k=9, d=1, verbose=False):
     """
     Relative density method
-
+    :param train: training set, Y is part of {+1,-1}
+    :param k: K neighbor number
+    :param d: threshold
+    :param verbose:
+    :return: clean training set
     """
     relative_density = []
     nega_train = train[train[:, 0] == -1, 1:]
@@ -42,9 +46,3 @@ def relative_density(train, k=9, d=1, verbose=False):
     relative_density = np.array(relative_density)
     new_train = train[relative_density <= d]
     return new_train
-
-
-
-
-
-
